@@ -12,6 +12,15 @@ fs.readFile(
   }
 );
 
+fs.writeFile(
+  path.join(__dirname, 'files', 'texts', 'mytext.txt'),
+  'Nice to meet you.',
+  (err) => {
+    if (err) throw err;
+    console.log('wrote completed');
+  }
+);
+
 process.on('uncaughtException', (err) => {
   console.log('uncaught error finded', err);
   process.exit();
