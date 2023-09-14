@@ -13,20 +13,19 @@ fs.readFile(
 );
 
 fs.writeFile(
-  path.join(__dirname, 'files', 'texts', 'mytext.txt'),
+  path.join(__dirname, 'files', 'texts', 'test.txt'),
   'Nice to meet you.',
   (err) => {
     if (err) throw err;
-    console.log('wrote completed');
-  }
-);
-
-fs.appendFile(
-  path.join(__dirname, 'files', 'texts', 'test.txt'),
-  'test file',
-  (err) => {
-    if (err) throw err;
-    console.log('append completed');
+    console.log('write completed');
+    fs.appendFile(
+      path.join(__dirname, 'files', 'texts', 'test.txt'),
+      '\n \n yes it is.',
+      (err) => {
+        if (err) throw err;
+        console.log('append completed');
+      }
+    );
   }
 );
 
