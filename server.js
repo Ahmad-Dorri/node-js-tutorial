@@ -21,6 +21,15 @@ fs.writeFile(
   }
 );
 
+fs.appendFile(
+  path.join(__dirname, 'files', 'texts', 'test.txt'),
+  'test file',
+  (err) => {
+    if (err) throw err;
+    console.log('append completed');
+  }
+);
+
 process.on('uncaughtException', (err) => {
   console.log('uncaught error finded', err);
   process.exit();
