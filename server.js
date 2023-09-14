@@ -2,17 +2,29 @@ const fs = require('fs');
 const fsPromises = require('fs/promises');
 const path = require('path');
 
-fs.readFile(
-  path.join(__dirname, 'files', 'texts', 'hello.txt'),
-  'utf-8',
-  (err, data) => {
-    if (err) {
-      throw err;
-    }
-    console.log(data);
-  }
-);
+// fs.readFile(
+//   path.join(__dirname, 'files', 'texts', 'hello.txt'),
+//   'utf-8',
+//   (err, data) => {
+//     if (err) {
+//       throw err;
+//     }
+//     console.log(data);
+//   }
+// );
 
+const fileOps = async () => {
+  try {
+    const data = await fsPromises.readFile(
+      path.join(__dirname, 'files', 'texts', 'hello.txt'),
+      'utf-8'
+    );
+    console.log(data);
+  } catch (error) {
+    if (error) throw error;
+  }
+};
+fileOps();
 // fs.writeFile(
 //   path.join(__dirname, 'files', 'texts', 'test.txt'),
 //   'Nice to meet you.',
